@@ -1,0 +1,91 @@
+#include <stdio.h>  
+int menu();
+void rickshaw();
+void cycle();
+void bus();
+void showDetails();
+void deleteData();
+
+int numRickshaws = 0, numCycles = 0, numBuses = 0;
+int totalAmount = 0, totalVehicles = 0;  
+
+int main() {
+    while (1) {
+        int choice = menu();
+
+        switch (choice) {
+            case 1:
+                rickshaw();
+                break;
+            case 2:
+                cycle();
+                break;
+            case 3:
+                bus();
+                break;
+            case 4:
+                showDetails();
+                break;
+            case 5:
+                deleteData();  
+                break;
+            case 6:
+                exit(0);
+            default:
+                printf("\nInvalid choice.\n");
+        }
+    }
+
+    return 0;  
+}
+
+int menu() {
+    int choice;
+    printf("1. Enter Rickshaw (50)\n");
+    printf("2. Enter Cycle (20)\n");
+    printf("3. Enter Bus (100)\n");
+    printf("4. Show status\n");
+    printf("5. Delete data\n");
+    printf("6. Exit\n");
+    printf("\nEnter your choice: ");
+    scanf("%d", &choice);
+    return choice;
+}
+
+void rickshaw() {
+    printf("Entry Success!\n");
+    numRickshaws++;
+    totalAmount += 50;
+    totalVehicles++;
+}
+
+void cycle() {
+    printf("Entry Success!\n");
+    numCycles++;
+    totalAmount += 20;
+    totalVehicles++;
+}
+
+void bus() {
+    printf("Entry Success!\n");
+    numBuses++;
+    totalAmount += 100;
+    totalVehicles++;
+}
+
+void showDetails() {
+    printf("Entered number of Buses: %d\n", numBuses);
+    printf("Entered number of Rickshaws: %d\n", numRickshaws);
+    printf("Entered number of Cycles: %d\n", numCycles);
+    printf("Total number of vehicles: %d\n", totalVehicles);
+    printf("Total gained amount: %d\n", totalAmount);
+}
+
+void deleteData() {
+    numRickshaws = 0;
+    numCycles = 0;
+    numBuses = 0;
+    totalAmount = 0;
+    totalVehicles = 0;
+    printf("Data deleted successfully.\n");
+}
